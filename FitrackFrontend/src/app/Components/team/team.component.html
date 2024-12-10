@@ -1,0 +1,108 @@
+<div class="bg-gray-100 min-h-screen p-8">
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-lg mb-8">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="text-3xl font-bold text-purple-600">MyApp</div>
+        <div class="flex space-x-4">
+          <a routerLink="/profile" class="text-gray-700 hover:text-purple-600">Profile</a>
+          <a routerLink="/statistics" class="text-gray-700 hover:text-purple-600">Statistics</a>
+          <a routerLink="/groups" class="text-gray-700 hover:text-purple-600">Groups</a>
+          <a routerLink="/team" class="text-gray-700 hover:text-purple-600">Team</a>
+          <a routerLink="/dashboard" class="text-gray-700 hover:text-purple-600">Dashboard</a>
+          <a routerLink="/login" class="text-gray-700 hover:text-purple-600">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Create Team Form -->
+  <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
+    <h2 class="text-3xl font-semibold mb-6">Create Team</h2>
+    <form [formGroup]="createForm" (ngSubmit)="createTeam()">
+      <div class="mb-6">
+        <label for="name" class="block text-gray-700 font-medium mb-2">Team Name</label>
+        <input type="text" id="name" formControlName="name" class="form-input mt-1 block w-full border border-gray-300 rounded-md p-2" />
+        <div *ngIf="createForm.get('name')?.invalid && createForm.get('name')?.touched" class="text-red-500 text-sm mt-1">
+          Team name is required.
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label for="event" class="block text-gray-700 font-medium mb-2">Event</label>
+        <select id="event" formControlName="event.id" class="form-input mt-1 block w-full border border-gray-300 rounded-md p-2">
+          <option *ngFor="let event of events" [value]="event.id">{{ event.name }}</option>
+        </select>
+        <div *ngIf="createForm.get('event.id')?.invalid && createForm.get('event.id')?.touched" class="text-red-500 text-sm mt-1">
+          Event is required.
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label for="createdBy" class="block text-gray-700 font-medium mb-2">Created By</label>
+        <input type="text" id="createdBy" formControlName="createdBy" class="form-input mt-1 block w-full border border-gray-300 rounded-md p-2" />
+        <div *ngIf="createForm.get('createdBy')?.invalid && createForm.get('createdBy')?.touched" class="text-red-500 text-sm mt-1">
+          Created by is required.
+        </div>
+      </div>
+      
+      <button type="submit" class="bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 w-full" [disabled]="createForm.invalid">
+        Create Team
+      </button>
+    </form>
+  </div>
+
+  <!-- Update Team Form -->
+  <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
+    <h2 class="text-3xl font-semibold mb-6">Update Team</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="updateTeam()">
+      <div class="mb-6">
+        <label for="id" class="block text-gray-700 font-medium mb-2">Team ID</label>
+        <input type="number" id="id" formControlName="id" class="form-input mt-1 block w-full border border-gray-300 rounded-md p-2" />
+        <div *ngIf="updateForm.get('id')?.invalid && updateForm.get('id')?.touched" class="text-red-500 text-sm mt-1">
+          Team ID is required.
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label for="name" class="block text-gray-700 font-medium mb-2">Team Name</label>
+        <input type="text" id="name" formControlName="name" class="form-input mt-1 block w-full border border-gray-300 rounded-md p-2" />
+        <div *ngIf="updateForm.get('name')?.invalid && updateForm.get('name')?.touched" class="text-red-500 text-sm mt-1">
+          Team name is required.
+        </div>
+      </div>
+
+      <button type="submit" class="bg-teal-500 text-white font-bold py-2 px-4 rounded hover:bg-teal-700 w-full" [disabled]="updateForm.invalid">
+        Update Team
+      </button>
+    </form>
+  </div>
+
+  <!-- Display Teams -->
+  <div *ngIf="teams.length > 0" class="bg-white shadow-lg rounded-lg p-8 mb-8">
+    <h2 class="text-3xl font-semibold mb-6">Teams</h2>
+    <ul>
+      <li *ngFor="let team of teams" class="text-lg flex items-center justify-between mb-4">
+        <span>{{ team.name }}</span>
+        <div class="flex space-x-2">
+          <button (click)="getTeamById(team.id)" class="bg-purple-500 text-white font-bold py-2 px-4 rounded hover:bg-purple-700">
+            Get Details
+          </button>
+          <button (click)="deleteTeam(team.id)" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">
+            Delete
+          </button>
+          <button (click)="joinTeam(team.id)" class="bg-yellow-500 text-white font-bold py-2 px-4 rounded hover:bg-yellow-700">
+            Join
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Display Team Details -->
+  <div *ngIf="team" class="bg-white shadow-lg rounded-lg p-8">
+    <h2 class="text-3xl font-semibold mb-6">Team Details</h2>
+    <p class="text-lg"><strong>ID:</strong> {{ team.id }}</p>
+    <p class="text-lg"><strong>Name:</strong> {{ team.name }}</p>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<h1 class="text-3xl font-bold text-center mb-8">Admin Register</h1>
+      <form (ngSubmit)="onCreateAdmin()" class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg space-y-6">
+        <div>
+          <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+          <input type="text" id="fullName" [(ngModel)]="admin.fullName" name="fullName" required
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" [(ngModel)]="admin.email" name="email" required
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input type="password" id="password" [(ngModel)]="admin.password" name="password" required
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        </div>
+        <button type="submit" class="w-full py-2 px-4 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+          Create Admin
+        </button>
+      </form>

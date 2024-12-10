@@ -1,0 +1,9 @@
+<h2>User Management</h2>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.fullName }} ({{ user.email }})
+    <button (click)="followUser(user.id)">Follow</button>
+    <button (click)="unfollowUser(user.id)">Unfollow</button>
+    <!-- {{user}} -->
+  </li>
+</ul>
