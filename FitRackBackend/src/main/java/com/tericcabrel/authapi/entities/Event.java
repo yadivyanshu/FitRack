@@ -1,36 +1,3 @@
-// package com.tericcabrel.authapi.entities;
-
-
-
-// import java.util.Date;
-
-// import jakarta.persistence.*;
-// import lombok.Data;
-
-// @Entity
-// @Table(name = "events")
-// @Data
-// public class Event {
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.AUTO)
-//     private Integer id;
-
-//     @Column(nullable = false)
-//     private String name;
-
-//     @Column(nullable = false)
-//     private Date date;
-
-//     @ManyToOne
-//     @JoinColumn(name = "venue_id", referencedColumnName = "id")
-//     private Venue venue;
-
-//     @ManyToOne
-//     @JoinColumn(name = "user_id", referencedColumnName = "id")
-//     private User user;
-
-//     // getters and setters
-// }
 package com.tericcabrel.authapi.entities;
 
 import jakarta.persistence.*;

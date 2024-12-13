@@ -24,12 +24,11 @@ export class PaymentDetailsComponent implements OnInit {
 
   onSubmit(): void {
     if (this.paymentForm.valid) {
-      // Perform payment processing here
       this.router.navigate(['/success']);
     }
   }
 
   cancel(): void {
-    this.router.navigate(['/']); // Navigate back to the dashboard or any other route
+    this.router.navigate(['/']); 
   }
 }

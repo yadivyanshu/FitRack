@@ -67,8 +67,8 @@ export class GroupComponent implements OnInit {
   createDiscussion() {
     if (this.discussionForm.valid) {
       const { message } = this.discussionForm.value;
-      const groupId = 1; // Set groupId to 1
-      const userId = 1; // Set userId to 1
+      const groupId = 1;
+      const userId = 1; 
       this.groupService.createDiscussion(message, groupId, userId).subscribe(response => {
         this.discussions.push(response);
       });

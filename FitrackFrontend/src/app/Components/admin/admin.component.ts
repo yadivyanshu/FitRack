@@ -19,11 +19,11 @@ export class AdminComponent {
     this.authService.createAdmin(this.admin).subscribe(
       response => {
         console.log('Admin created successfully', response);
-        // Handle successful admin creation (e.g., navigate to admin dashboard or show a success message)
+
       },
       error => {
         console.error('Error creating admin', error);
-        // Handle error (e.g., show an error message)
+
       }
     );
   }

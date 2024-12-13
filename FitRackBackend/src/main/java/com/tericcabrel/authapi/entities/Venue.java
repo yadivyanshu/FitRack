@@ -23,5 +23,4 @@ public class Venue {
     @NotBlank(message = "Location is mandatory field")
     private String location;
 
-    // getters and setters
 }

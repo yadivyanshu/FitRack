@@ -65,13 +65,5 @@ public class SecurityConfiguration {
 
         return source;
     }
-    //Added New
-    // @Bean
-    // public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    //     http.cors().and().csrf().disable()
-    //         .authorizeRequests()
-    //         .requestMatchers("/admins").authenticated()
-    //         .anyRequest().permitAll();
-    //     return http.build();
-    // }
+
 }

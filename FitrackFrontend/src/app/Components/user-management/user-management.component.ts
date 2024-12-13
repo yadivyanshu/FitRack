@@ -8,18 +8,12 @@ import { UserService } from '../../services/user.service';
 })
 export class UserManagementComponent implements OnInit {
    users: any[] = [];
-  //users:any;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userService.getAllUsers().subscribe(users => {
       this.users = users;
     });
-    // this.userService.getLoginCount(2).subscribe(users=>{
-    //   this.users= users;
-    //   console.log(this.users);
-      
-    // })
   }
 
   followUser(userId: number) {

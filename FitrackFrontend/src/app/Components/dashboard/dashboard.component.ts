@@ -13,10 +13,10 @@ export class DashboardComponent implements OnInit {
   events: any[] = [];
   isEditModalOpen = false;
   isCreateModalOpen = false;
-  isBookEventModalOpen = false; // Add this property
+  isBookEventModalOpen = false; 
   editForm!: FormGroup;
   createForm!: FormGroup;
-  bookEventForm!: FormGroup; // Add this property
+  bookEventForm!: FormGroup; 
   currentEventId!: number;
   searchTerm: string = '';
   startDate: string = '';
@@ -103,7 +103,7 @@ export class DashboardComponent implements OnInit {
     if (this.createForm.valid) {
       console.log(this.createForm.value);
       this.eventService.createEvent(this.createForm.value).subscribe(newEvent => {
-        this.events.push(newEvent); // Add the new event to the events array
+        this.events.push(newEvent); 
         this.closeCreateModal();
       });
     }
@@ -147,14 +147,14 @@ export class DashboardComponent implements OnInit {
   }
 
   openBookEventModal(event: any): void {
-    this.isBookEventModalOpen = true; // Set the modal open flag
+    this.isBookEventModalOpen = true; 
     this.bookEventForm.patchValue({
       eventName: event.name
     });
     this.currentEventId = event.id;
   }
 
-  closeBookEventModal(): void { // Add this method
+  closeBookEventModal(): void { 
     this.isBookEventModalOpen = false;
   }
   
@@ -163,7 +163,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/payment-details']);
   }
 
-  onBookEvent(): void { // Add this method
+  onBookEvent(): void { 
     if (this.bookEventForm.valid) {
       const bookingData = {
         eventId: this.currentEventId,

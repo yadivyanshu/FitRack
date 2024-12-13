@@ -21,8 +21,6 @@ import java.util.Set;
 @Entity
 @Data
 public class User implements UserDetails {
-    
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
@@ -73,6 +71,9 @@ public class User implements UserDetails {
     private Set<Statistics> statistics;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (role == null) {
+            return List.of();
+        }
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role.getName().toString());
 
         return List.of(authority);
@@ -174,7 +175,6 @@ public class User implements UserDetails {
         this.loginCount = loginCount;
     }
 
-    
 
     @Override
     public String toString() {

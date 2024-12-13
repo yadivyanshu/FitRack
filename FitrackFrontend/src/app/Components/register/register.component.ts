@@ -39,12 +39,10 @@ export class RegisterComponent {
           alert('user register successfully');
           console.log('User registered successfully', response);
           this.router.navigate(['/']); 
-          // Handle successful registration (e.g., navigate to login page or show a success message)
         },
         error => {
           alert('Error Registration User');
           console.error('Error registering user', error);
-          // Handle error (e.g., show an error message)
         }
       );
     }

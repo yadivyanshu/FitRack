@@ -21,7 +21,6 @@ public class TeamMapper {
         Team team = new Team();
         team.setId(dto.getId());
         team.setName(dto.getName());
-        // Set event and createdBy using their respective repositories
         return team;
     }
 }

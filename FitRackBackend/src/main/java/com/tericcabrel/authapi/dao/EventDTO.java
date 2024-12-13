@@ -5,7 +5,6 @@ import java.util.Date;
 
 @Data
 public class EventDTO {
-    // private Integer id;
     private String name;
     private Date date;
     private Date startTime;

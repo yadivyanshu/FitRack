@@ -30,7 +30,6 @@ export class ProfileComponent {
   }
 
   isSuperAdmin(): boolean {
-    // console.log(this.user && this.user.role.name === 'SUPER_ADMIN');
     
     return this.user && this.user.role.name === 'SUPER_ADMIN';
   }

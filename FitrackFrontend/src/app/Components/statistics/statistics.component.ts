@@ -11,13 +11,12 @@ import { Chart, registerables } from 'chart.js';
 export class StatisticsComponent implements OnInit {  
   statistics: Statistics[] = [];  
   userId: any;  
-  searchId: any; // New variable for search input  
+  searchId: any;  
   chart: any;  
   
   constructor(private statisticsService: StatisticsService) { }  
   
   ngOnInit(): void {  
- // Optionally load default statistics  
  this.loadStatistics(this.userId);  
   }  
   
@@ -25,14 +24,14 @@ export class StatisticsComponent implements OnInit {
  this.statisticsService.getStatisticsByUserId(userId).subscribe(  
   data => {  
   this.statistics = data;  
-  console.log('Statistics loaded:', this.statistics); // Debugging line  
+  console.log('Statistics loaded:', this.statistics); 
    this.createChart();  
   },  
   error => console.error('Error fetching statistics', error)  
   );  
   }  
   
-  // New method to handle search  
+
   onSearch(): void {  
   if (this.searchId) {  
   this.loadStatistics(this.searchId);  

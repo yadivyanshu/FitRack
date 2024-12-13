@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class GroupService {
 
-  private apiUrl = 'http://localhost:8080/api/groups'; // Update this URL to match your backend server
-  private discussionApiUrl = 'http://localhost:8080/api/discussions'; // Update this URL to match your backend server
+  private apiUrl = 'http://localhost:8080/api/groups'; 
+  private discussionApiUrl = 'http://localhost:8080/api/discussions'; 
 
   constructor(private http: HttpClient) {}
 

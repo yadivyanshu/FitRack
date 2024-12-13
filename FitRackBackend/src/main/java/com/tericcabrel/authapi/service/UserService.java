@@ -65,7 +65,6 @@ public class UserService {
 
         if (user.isPresent() && follower.isPresent()) {
             user.get().getFollowers().add(follower.get());
-            System.out.println("---THIS IS DATA--- "+user.get().getFollowers());
             userRepository.save(user.get());
         } else {
             throw new RuntimeException("User or Follower not found");
@@ -78,9 +77,7 @@ public class UserService {
         Optional<User> follower = userRepository.findById(followerId);
 
         if (user.isPresent() && follower.isPresent()) {
-            System.out.println("---THIS IS DATA--- "+user.get().getFollowers());
             user.get().getFollowers().remove(follower.get());
-            System.out.println("---THIS IS DATA--- "+user.get().getFollowers());
             userRepository.save(user.get());
         } else {
             throw new RuntimeException("User or Follower not found");

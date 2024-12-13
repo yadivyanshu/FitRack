@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class TeamService {
   private baseUrl = 'http://localhost:8080/teams';
-  private userUrl = 'http://localhost:8080/users/me'; // URL to fetch user details
-  private eventUrl = 'http://localhost:8080/events'; // URL to fetch events
+  private userUrl = 'http://localhost:8080/users/me'; 
+  private eventUrl = 'http://localhost:8080/events'; 
 
   constructor(private http: HttpClient) { }
 
